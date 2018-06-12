@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".features.plantinfo.ui.PlantInfoActivity"
+        >
+
+        <android.support.v4.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fillViewport="true"
+            >
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clipToPadding="false"
+                android:padding="8dp"
+                >
+
+                <TextView
+                    android:id="@+id/description_label"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:text="Description:"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    />
+
+                <TextView
+                    android:id="@+id/description_textview"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/optimalSun_textview"
+                    app:layout_constraintTop_toTopOf="@+id/description_label"
+                    tools:text="This is a plant"
+                    />
+                <!--android:text="@{viewModel.plantDescription}"-->
+
+                <TextView
+                    android:id="@+id/optimalSun_label"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:text="Optimal Sun:"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/description_textview"
+                    />
+
+                <TextView
+                    android:id="@+id/optimalSun_textview"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginStart="8dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/optimalSun_label"
+                    app:layout_constraintTop_toTopOf="@+id/optimalSun_label"
+                    tools:text="This is the optimal sun."
+                    />
+                <!--android:text="@{viewModel.plantOptimalSun}"-->
+
+                <TextView
+                    android:id="@+id/plantingConsiderations_label"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:text="Planting Considerations:"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/optimalSun_textview"
+                    />
+
+                <TextView
+                    android:id="@+id/plantingConsiderations_textview"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/plantingConsiderations_label"
+                    tools:text="This is the planting considerations."
+                    />
+                <!--android:text="@{viewModel.plantConsiderations}"-->
+
+                <TextView
+                    android:id="@+id/growingFromSeed_label"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:text="Growing From Seed:"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/plantingConsiderations_textview"
+                    />
+
+                <TextView
+                    android:id="@+id/growingFromSeed_textview"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/growingFromSeed_label"
+                    tools:text="This is how to grow from seed."
+                    />
+                <!--android:text="@{viewModel.plantGrowingFromSeed}"-->
+
+                <TextView
+                    android:id="@+id/otherCare_label"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:text="Other Care:"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/growingFromSeed_textview"
+                    />
+
+                <TextView
+                    android:id="@+id/otherCare_textview"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginStart="8dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/optimalSun_textview"
+                    app:layout_constraintTop_toTopOf="@+id/otherCare_label"
+                    tools:text="This is other care."
+                    />
+                <!--android:text="@{viewModel.plantOtherCare}"-->
+
+                <TextView
+                    android:id="@+id/diseases_label"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:text="Diseases:"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/otherCare_textview"
+                    />
+
+                <TextView
+                    android:id="@+id/diseases_textview"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/otherCare_textview"
+                    app:layout_constraintTop_toTopOf="@+id/diseases_label"
+                    tools:text="These are the diseases."
+                    />
+                <!--android:text="@{viewModel.plantDiseases}"-->
+
+                <TextView
+                    android:id="@+id/harvesting_label"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:text="Harvesting:"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/diseases_textview"
+                    />
+
+                <TextView
+                    android:id="@+id/harvesting_textview"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/diseases_textview"
+                    app:layout_constraintTop_toTopOf="@+id/harvesting_label"
+                    tools:text="This is the harvesting."
+                    />
+                <!--android:text="@{viewModel.plantHarvesting}"-->
+
+                <TextView
+                    android:id="@+id/storageUse_label"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:text="Storage Use:"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/harvesting_textview"
+                    />
+
+                <TextView
+                    android:id="@+id/storageUse_textview"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:paddingBottom="4dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/harvesting_textview"
+                    app:layout_constraintTop_toTopOf="@+id/storageUse_label"
+                    tools:text="This is the storage use."
+                    />
+                <!--android:text="@{viewModel.plantStorageUse}"-->
+
+            </android.support.constraint.ConstraintLayout>
+
+        </android.support.v4.widget.NestedScrollView>
+
+    </android.support.constraint.ConstraintLayout>
+
+</layout>
