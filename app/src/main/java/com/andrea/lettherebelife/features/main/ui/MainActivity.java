@@ -32,13 +32,13 @@ import static com.andrea.lettherebelife.application.PlantApplication.getDagger;
 
 public class MainActivity extends AppCompatActivity implements MainContract.View, PlantAdapter.ListItemClickListener {
 
-    ActivityMainBinding binding;
-
     @Inject MainPresenter presenter;
 
     private ChildEventListener childEventListener;
     private ValueEventListener valueEventListener;
     private DatabaseReference messagesDatabaseReference;
+
+    private ActivityMainBinding binding;
     private List<Plant> plantList = new ArrayList<>();
 
     @Override
@@ -83,8 +83,8 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
     }
 
     @Override
-    public void onListItemClicked() {
-        presenter.onPlantListItemSelected();
+    public void onListItemClicked(@NonNull Plant plant) {
+        presenter.onPlantListItemSelected(plant);
     }
 
     // region View methods

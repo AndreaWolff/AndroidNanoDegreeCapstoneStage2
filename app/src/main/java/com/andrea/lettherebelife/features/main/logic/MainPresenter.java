@@ -2,6 +2,7 @@ package com.andrea.lettherebelife.features.main.logic;
 
 import android.content.Context;
 import android.content.Intent;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
 import com.andrea.lettherebelife.features.common.domain.Plant;
@@ -45,8 +46,9 @@ public class MainPresenter {
         }
     }
 
-    public void onPlantListItemSelected() {
+    public void onPlantListItemSelected(@NonNull Plant plant) {
         Intent intent = new Intent(context, PlantDetailsActivity.class);
+        intent.putExtra("PLANT", plant);
 
         if (view != null) {
             view.navigateToPlantDetailsActivity(intent);
