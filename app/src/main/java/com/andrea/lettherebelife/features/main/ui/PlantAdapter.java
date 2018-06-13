@@ -9,6 +9,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.andrea.lettherebelife.R;
+import com.andrea.lettherebelife.features.common.domain.Plant;
+
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -16,13 +19,16 @@ import butterknife.ButterKnife;
 public class PlantAdapter extends RecyclerView.Adapter<PlantAdapter.PlantViewHolder> {
 
     private ListItemClickListener listItemClickListener;
+    private List<Plant> plantList;
 
     public interface ListItemClickListener {
         void onListItemClicked();
+//        void onListItemClicked(@NonNull Plant plant);
     }
 
-    PlantAdapter(@NonNull ListItemClickListener listItemClickListener) {
+    PlantAdapter(@NonNull ListItemClickListener listItemClickListener, @NonNull List<Plant> plantList) {
         this.listItemClickListener = listItemClickListener;
+        this.plantList = plantList;
     }
 
     @NonNull
@@ -40,6 +46,7 @@ public class PlantAdapter extends RecyclerView.Adapter<PlantAdapter.PlantViewHol
     @Override
     public int getItemCount() {
         return 5;
+//        return plantList != null && plantList.size() > 0 ? plantList.size() : 0;
     }
 
     class PlantViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
@@ -62,6 +69,7 @@ public class PlantAdapter extends RecyclerView.Adapter<PlantAdapter.PlantViewHol
         @Override
         public void onClick(View view) {
             listItemClickListener.onListItemClicked();
+//            listItemClickListener.onListItemClicked(plantList.get(getAdapterPosition()));
         }
     }
 }
