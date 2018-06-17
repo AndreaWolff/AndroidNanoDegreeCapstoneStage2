@@ -13,7 +13,6 @@ import com.andrea.lettherebelife.databinding.ActivityMainBinding;
 import com.andrea.lettherebelife.features.common.domain.Plant;
 import com.andrea.lettherebelife.features.main.MainContract;
 import com.andrea.lettherebelife.features.main.logic.MainPresenter;
-import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -34,7 +33,6 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
 
     @Inject MainPresenter presenter;
 
-    private ChildEventListener childEventListener;
     private ValueEventListener valueEventListener;
     private DatabaseReference messagesDatabaseReference;
 
@@ -47,7 +45,10 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
 
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+        firebaseDatabase.setPersistenceEnabled(true);
         messagesDatabaseReference = firebaseDatabase.getReference().child("plants");
+
+        attachValueEventListener();
 
         ButterKnife.bind(this);
 
@@ -61,8 +62,6 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         binding.plantRecyclerView.setNestedScrollingEnabled(true);
 
         presenter.connectView(this);
-
-        attachDatabaseReadListener();
     }
 
     @OnClick(R.id.new_plant_fab)
@@ -73,7 +72,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
     @Override
     protected void onPause() {
         super.onPause();
-        presenter.detachDatabaseReadListener(childEventListener, valueEventListener);
+        presenter.detachDatabaseReadListener(valueEventListener);
     }
 
     @Override
@@ -105,61 +104,34 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
     }
 
     @Override
-    public void detachChildEventListener() {
-        messagesDatabaseReference.removeEventListener(childEventListener);
-        childEventListener = null;
-    }
-
-    @Override
     public void detachValueEventListener() {
         messagesDatabaseReference.removeEventListener(valueEventListener);
         valueEventListener = null;
     }
     // endregion
 
-    //TODO: Look at this!!! https://www.learnhowtoprogram.com/android/gestures-animations-flexible-uis/using-the-camera-and-saving-images-to-firebase
-    private void attachDatabaseReadListener() {
-        if (childEventListener == null) {
-            childEventListener = new ChildEventListener() {
+    // TODO: Look at this!!! https://www.learnhowtoprogram.com/android/gestures-animations-flexible-uis/using-the-camera-and-saving-images-to-firebase
+    // TODO: Move this to a presenter?????
+    private void attachValueEventListener() {
+        if (valueEventListener == null) {
+            messagesDatabaseReference.addValueEventListener(new ValueEventListener() {
                 @Override
-                public void onChildAdded(@NonNull DataSnapshot dataSnapshot, String s) {
-                    Plant plant = dataSnapshot.getValue(Plant.class);
-                    plantList.add(plant);
-                }
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    plantList.clear();
 
-                @Override
-                public void onChildChanged(@NonNull DataSnapshot dataSnapshot, String s) {
-                }
+                    for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                        Plant plant = snapshot.getValue(Plant.class);
+                        plantList.add(plant);
+                    }
 
-                @Override
-                public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
-                }
-
-                @Override
-                public void onChildMoved(@NonNull DataSnapshot dataSnapshot, String s) {
+                    presenter.setPlantList(plantList);
                 }
 
                 @Override
                 public void onCancelled(@NonNull DatabaseError databaseError) {
+
                 }
-            };
-
-            if (valueEventListener == null) {
-                valueEventListener = new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        presenter.setPlantList(plantList);
-                    }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                    }
-                };
-            }
-
-            messagesDatabaseReference.addChildEventListener(childEventListener);
-            messagesDatabaseReference.addValueEventListener(valueEventListener);
+            });
         }
     }
 }

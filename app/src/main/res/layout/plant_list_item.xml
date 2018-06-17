@@ -23,12 +23,12 @@
             android:id="@+id/plant_image"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:contentDescription="Plant Image"
+            android:background="@drawable/image_border"
+            android:contentDescription="@string/plant_image_content_description"
+            android:padding="16dp"
             android:scaleType="centerCrop"
             tools:background="@color/colorAccent"
             tools:src="@drawable/ic_launcher_foreground"
-            android:background="@drawable/image_border"
-            android:padding="16dp"
             />
 
         <TextView
@@ -39,7 +39,6 @@
             android:layout_marginEnd="16dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
-            android:text="Plant Name"
             android:textSize="18sp"
             app:layout_constraintBottom_toTopOf="@+id/plant_seed_date"
             app:layout_constraintEnd_toEndOf="parent"
@@ -56,7 +55,6 @@
             android:layout_marginBottom="24dp"
             android:layout_marginEnd="16dp"
             android:layout_marginStart="16dp"
-            android:text="Seed Date"
             app:layout_constraintBottom_toBottomOf="@+id/plant_image"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"

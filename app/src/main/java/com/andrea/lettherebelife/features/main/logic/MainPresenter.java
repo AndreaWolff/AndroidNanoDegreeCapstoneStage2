@@ -55,13 +55,7 @@ public class MainPresenter {
         }
     }
 
-    public void detachDatabaseReadListener(@Nullable ChildEventListener childEventListener, @Nullable ValueEventListener valueEventListener) {
-        if (childEventListener != null) {
-            if (view != null) {
-                view.detachChildEventListener();
-            }
-        }
-
+    public void detachDatabaseReadListener(@Nullable ValueEventListener valueEventListener) {
         if (valueEventListener != null) {
             if (view != null) {
                 view.detachValueEventListener();

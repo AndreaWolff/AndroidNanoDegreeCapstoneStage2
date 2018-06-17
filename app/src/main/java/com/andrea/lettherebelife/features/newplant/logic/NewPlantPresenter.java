@@ -6,17 +6,16 @@ import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.util.Base64;
 
 import com.andrea.lettherebelife.features.common.domain.Plant;
 import com.andrea.lettherebelife.features.newplant.NewPlantContract;
-
-import java.io.ByteArrayOutputStream;
 
 import javax.inject.Inject;
 
 import static android.app.Activity.RESULT_OK;
 import static android.provider.MediaStore.ACTION_IMAGE_CAPTURE;
+import static com.andrea.lettherebelife.features.common.ActivityConstants.IMAGE_REQUEST_CODE;
+import static com.andrea.lettherebelife.util.EncodeImageForFirebase.encodeBitmapAndSaveToFirebase;
 
 public class NewPlantPresenter {
 
@@ -64,7 +63,7 @@ public class NewPlantPresenter {
     }
 
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        if (requestCode == 111 && resultCode == RESULT_OK && data != null) {
+        if (requestCode == IMAGE_REQUEST_CODE && resultCode == RESULT_OK && data != null) {
             Bundle extras = data.getExtras();
 
             if (extras != null) {
@@ -75,17 +74,10 @@ public class NewPlantPresenter {
                         view.renderPlantImage(imageBitmap);
                     }
 
-                    encodeBitmapAndSaveToFirebase(imageBitmap);
+                    photoUrl = encodeBitmapAndSaveToFirebase(imageBitmap);
                 }
             }
         }
-    }
-
-    // Issues storing photos taken from https://code.tutsplus.com/tutorials/image-upload-to-firebase-in-android-application--cms-29934
-    private void encodeBitmapAndSaveToFirebase(@NonNull Bitmap bitmap) {
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.PNG, 100, baos);
-        photoUrl = Base64.encodeToString(baos.toByteArray(), Base64.DEFAULT);
     }
 
     // TODO: check to see if char sequences are over so many characters and then do an error if not

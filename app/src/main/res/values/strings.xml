@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Let There Be Life</string>
+    <string name="plant_image_content_description">Plant Image</string>
 </resources>

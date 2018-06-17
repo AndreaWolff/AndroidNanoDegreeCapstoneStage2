@@ -26,6 +26,7 @@ import butterknife.OnClick;
 import butterknife.OnTextChanged;
 
 import static com.andrea.lettherebelife.application.PlantApplication.getDagger;
+import static com.andrea.lettherebelife.features.common.ActivityConstants.IMAGE_REQUEST_CODE;
 
 public class NewPlantActivity extends AppCompatActivity implements NewPlantContract.View {
 
@@ -141,7 +142,7 @@ public class NewPlantActivity extends AppCompatActivity implements NewPlantContr
     @Override
     public void navigateToAddImage(@NonNull Intent intent, int image_id) {
         if (intent.resolveActivity(this.getPackageManager()) != null) {
-            startActivityForResult(intent, 111);
+            startActivityForResult(intent, IMAGE_REQUEST_CODE);
         }
     }
 
