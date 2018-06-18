@@ -13,6 +13,7 @@ import com.andrea.lettherebelife.databinding.ActivityMainBinding;
 import com.andrea.lettherebelife.features.common.domain.Plant;
 import com.andrea.lettherebelife.features.main.MainContract;
 import com.andrea.lettherebelife.features.main.logic.MainPresenter;
+import com.andrea.lettherebelife.jobintentservice.PlantJobIntentService;
 
 import java.util.List;
 
@@ -46,6 +47,8 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         binding.plantRecyclerView.setNestedScrollingEnabled(true);
 
         presenter.connectView(this);
+
+        PlantJobIntentService.enqueueWork(this);
     }
 
     @OnClick(R.id.new_plant_fab)

@@ -6,9 +6,9 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
+import com.andrea.lettherebelife.data.PlantDao;
 import com.andrea.lettherebelife.features.common.domain.Plant;
 import com.andrea.lettherebelife.features.common.domain.PlantInfo;
-import com.andrea.lettherebelife.features.common.repository.PlantInfoRepository;
 import com.andrea.lettherebelife.features.details.PlantDetailsContract;
 import com.andrea.lettherebelife.features.plantinfo.ui.PlantInfoActivity;
 
@@ -25,7 +25,7 @@ import static com.andrea.lettherebelife.util.DecodeImageFromFirebase.decodeImage
 public class PlantDetailsPresenter {
 
     private final Context context;
-    private final PlantInfoRepository plantInfoRepository;
+    private final PlantDao plantDao;
 
     private CompositeDisposable disposable = new CompositeDisposable();
     private PlantDetailsContract.View view;
@@ -34,9 +34,9 @@ public class PlantDetailsPresenter {
 
     @Inject
     PlantDetailsPresenter(@NonNull Context context,
-                          @NonNull PlantInfoRepository plantInfoRepository) {
+                          @NonNull PlantDao plantDao) {
         this.context = context;
-        this.plantInfoRepository = plantInfoRepository;
+        this.plantDao = plantDao;
     }
 
     public void connectView(@Nullable PlantDetailsContract.View view, @Nullable Bundle extras, @Nullable Bundle savedInstanceState) {
@@ -44,7 +44,7 @@ public class PlantDetailsPresenter {
 
         if (extras == null) {
             assert this.view != null;
-            this.view.finishActivity();
+            view.finishActivity();
             return;
         }
 
@@ -60,16 +60,14 @@ public class PlantDetailsPresenter {
         }
 
         configurePlantDetails();
+        configureAboutPlantMenu();
+    }
 
-        disposable.add(plantInfoRepository.getPlantInfo()
+    private void configureAboutPlantMenu() {
+        disposable.add(plantDao.loadAllPlantInfo()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(this::handleSuccessfulResponse, this::handleErrorResponse));
-
-//        disposable.add(appDatabase.plantInfoDao().loadAllPlantInfo()
-//                .subscribeOn(Schedulers.io())
-//                .observeOn(AndroidSchedulers.mainThread())
-//                .subscribe(this::handleSuccessfulResponse, this::handleErrorResponse));
     }
 
     public void showPlantInfo() {

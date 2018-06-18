@@ -1,6 +1,16 @@
 <resources>
     <string name="app_name">Let There Be Life</string>
+
     <string name="plant_image_content_description">Plant Image</string>
+
     <string name="description">Description:</string>
     <string name="seed_date">Start Date:</string>
+    <string name="optimal_sun">Optimal Sun:</string>
+    <string name="other_care">Other Care:</string>
+    <string name="diseases">Diseases:</string>
+    <string name="harvesting">Harvesting:</string>
+    <string name="storage_use">Storage Use:</string>
+    <string name="from_seed">From Seed:</string>
+    <string name="consider">Consider:</string>
+
 </resources>

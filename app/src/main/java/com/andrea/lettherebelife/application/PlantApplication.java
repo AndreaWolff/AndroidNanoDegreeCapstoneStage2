@@ -7,6 +7,7 @@ import com.andrea.lettherebelife.dagger.component.DaggerAppComponent;
 import com.andrea.lettherebelife.dagger.module.AppModule;
 import com.andrea.lettherebelife.dagger.module.NetModule;
 import com.facebook.stetho.Stetho;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class PlantApplication extends Application {
 
@@ -23,6 +24,8 @@ public class PlantApplication extends Application {
         appComponent = createDaggerComponent();
 
         Stetho.initializeWithDefaults(this);
+
+        FirebaseDatabase.getInstance().setPersistenceEnabled(true);
     }
 
     private AppComponent createDaggerComponent() {

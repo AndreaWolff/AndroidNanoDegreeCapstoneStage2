@@ -5,8 +5,10 @@ import java.util.List;
 import io.reactivex.Single;
 import retrofit2.http.GET;
 
+import static com.andrea.lettherebelife.features.common.ActivityConstants.API_KEY;
+
 public interface PlantInfoDao {
 
-    @GET("plants?api_key=9c8ed87dcedfa1f55f1a52409a6c8e3c") Single<List<PlantInfoDto>> getPlantInfo();
+    @GET("plants?api_key=" + API_KEY) Single<List<PlantInfoDto>> getPlantInfo();
 
 }

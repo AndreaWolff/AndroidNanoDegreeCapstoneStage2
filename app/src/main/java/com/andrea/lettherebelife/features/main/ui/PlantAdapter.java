@@ -17,7 +17,6 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 import static com.andrea.lettherebelife.util.DecodeImageFromFirebase.decodeImageFromFirebaseBase64;
-import static com.andrea.lettherebelife.util.GlideUtil.displayImage;
 import static com.andrea.lettherebelife.util.GlideUtil.displayPlantImage;
 
 public class PlantAdapter extends RecyclerView.Adapter<PlantAdapter.PlantViewHolder> {
@@ -71,7 +70,7 @@ public class PlantAdapter extends RecyclerView.Adapter<PlantAdapter.PlantViewHol
             String photoUrl = plantList.get(listItem).getPhotoUrl();
             if (photoUrl != null) {
                 if (photoUrl.isEmpty()) {
-                    displayImage("", plantImageView);
+                    displayPlantImage("", plantImageView);
                     return;
                 }
 

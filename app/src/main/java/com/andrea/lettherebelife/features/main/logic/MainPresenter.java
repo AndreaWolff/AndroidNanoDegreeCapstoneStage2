@@ -12,7 +12,6 @@ import com.andrea.lettherebelife.features.newplant.ui.NewPlantActivity;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
@@ -23,15 +22,17 @@ import javax.inject.Inject;
 public class MainPresenter {
 
     private final Context context;
+    private final DatabaseReference messagesDatabaseReference;
 
     private MainContract.View view;
-    private DatabaseReference messagesDatabaseReference;
     private ValueEventListener valueEventListener;
     private List<Plant> plantList;
 
     @Inject
-    MainPresenter(@NonNull Context context) {
+    MainPresenter(@NonNull Context context,
+                  @NonNull DatabaseReference messagesDatabaseReference) {
         this.context = context;
+        this.messagesDatabaseReference = messagesDatabaseReference;
     }
 
     public void connectView(@Nullable MainContract.View view) {
@@ -41,9 +42,6 @@ public class MainPresenter {
     }
 
     private void init() {
-        FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
-        messagesDatabaseReference = firebaseDatabase.getReference().child("plants");
-
         attachValueEventListener();
     }
 

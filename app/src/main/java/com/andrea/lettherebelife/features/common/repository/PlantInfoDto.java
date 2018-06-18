@@ -5,7 +5,7 @@ import android.support.annotation.NonNull;
 import com.andrea.lettherebelife.features.common.domain.PlantInfo;
 import com.google.gson.annotations.SerializedName;
 
-class PlantInfoDto {
+public class PlantInfoDto {
 
     @SerializedName("id") private Integer id;
     @SerializedName("name") private String name;
