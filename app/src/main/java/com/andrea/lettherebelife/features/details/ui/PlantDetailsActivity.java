@@ -5,11 +5,11 @@ import android.databinding.DataBindingUtil;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.v4.app.ShareCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import com.andrea.lettherebelife.R;
 import com.andrea.lettherebelife.dagger.component.DaggerPlantDetailsComponent;
@@ -63,8 +63,7 @@ public class PlantDetailsActivity extends AppCompatActivity implements PlantDeta
 
     @OnClick(R.id.share_fab)
     public void onShareSelected() {
-        // TODO: Send image via SHARE
-        Toast.makeText(PlantDetailsActivity.this, "Set up share for image", Toast.LENGTH_LONG).show();
+        presenter.onShareSelected();
     }
 
     // region Plant Information menu
@@ -141,6 +140,17 @@ public class PlantDetailsActivity extends AppCompatActivity implements PlantDeta
     @Override
     public void navigateToPlantInfo(@NonNull Intent intent) {
         startActivity(intent);
+    }
+
+    @Override
+    public void sharePlantDetails(@NonNull String type, @NonNull String plantDetails) {
+        Intent shareIntent = ShareCompat.IntentBuilder
+                .from(this)
+                .setType(type)
+                .setText(plantDetails)
+                .getIntent()
+                .addFlags(Intent.FLAG_ACTIVITY_NEW_DOCUMENT);
+        startActivity(shareIntent);
     }
 
     @Override

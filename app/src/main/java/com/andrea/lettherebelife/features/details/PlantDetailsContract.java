@@ -24,6 +24,9 @@ public interface PlantDetailsContract {
 
         void navigateToPlantInfo(@NonNull Intent intent);
 
+        void sharePlantDetails(@NonNull String type, @NonNull String plantDetails);
+
         void finishActivity();
+
     }
 }

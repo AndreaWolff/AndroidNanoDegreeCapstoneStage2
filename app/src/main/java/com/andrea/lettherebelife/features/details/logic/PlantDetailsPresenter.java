@@ -128,4 +128,12 @@ public class PlantDetailsPresenter {
             }
         }
     }
+
+    public void onShareSelected() {
+        if (plant != null) {
+            if (view != null) {
+                view.sharePlantDetails("text/plain", "Plant Name: " + plant.getName() + "\nSeed Date: " + plant.getSeedDate() + "\nDescription: " + plant.getDescription());
+            }
+        }
+    }
 }
