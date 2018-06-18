@@ -25,10 +25,7 @@
             android:layout_height="100dp"
             android:background="@drawable/image_border"
             android:contentDescription="@string/plant_image_content_description"
-            android:padding="16dp"
             android:scaleType="centerCrop"
-            tools:background="@color/colorAccent"
-            tools:src="@drawable/ic_launcher_foreground"
             />
 
         <TextView

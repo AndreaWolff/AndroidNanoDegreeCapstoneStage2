@@ -11,15 +11,15 @@ public class GlideUtil {
     public static void displayImage(@NonNull String photo, @NonNull ImageView imageView) {
         Glide.with(imageView.getContext())
                 .load(photo)
-                .placeholder(R.color.colorAccent)
+                .placeholder(R.drawable.icon_image)
                 .into(imageView);
     }
 
     public static void displayPlantImage(@NonNull String photo, @NonNull ImageView imageView) {
         Glide.with(imageView.getContext())
                 .load(photo)
-                .centerCrop()
-                .placeholder(R.color.colorAccent)
+                .fitCenter()
+                .placeholder(R.drawable.icon_image)
                 .into(imageView);
     }
 }

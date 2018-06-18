@@ -12,7 +12,7 @@ import static com.andrea.lettherebelife.application.PlantApplication.getDagger;
 
 public class PlantInfoActivity extends AppCompatActivity {
 
-    ActivityPlantInformationBinding binding;
+    private ActivityPlantInformationBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

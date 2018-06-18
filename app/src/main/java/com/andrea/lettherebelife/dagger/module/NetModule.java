@@ -3,6 +3,9 @@ package com.andrea.lettherebelife.dagger.module;
 import android.app.Application;
 import android.support.annotation.NonNull;
 
+import com.andrea.lettherebelife.features.common.repository.PlantInfoDao;
+import com.andrea.lettherebelife.features.common.repository.PlantInfoRepository;
+import com.andrea.lettherebelife.features.common.repository.PlantInfoRepositoryDefault;
 import com.facebook.stetho.okhttp3.StethoInterceptor;
 
 import javax.inject.Singleton;
@@ -42,5 +45,17 @@ public class NetModule {
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .baseUrl(BASE_URL)
                 .build();
+    }
+
+    @Singleton
+    @Provides
+    PlantInfoDao plantInfoDao(@NonNull Retrofit retrofit) {
+        return retrofit.create(PlantInfoDao.class);
+    }
+
+    @Singleton
+    @Provides
+    PlantInfoRepository plantInfoRepository(@NonNull PlantInfoRepositoryDefault impl) {
+        return impl;
     }
 }

@@ -13,13 +13,7 @@ import com.andrea.lettherebelife.databinding.ActivityMainBinding;
 import com.andrea.lettherebelife.features.common.domain.Plant;
 import com.andrea.lettherebelife.features.main.MainContract;
 import com.andrea.lettherebelife.features.main.logic.MainPresenter;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -33,22 +27,12 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
 
     @Inject MainPresenter presenter;
 
-    private ValueEventListener valueEventListener;
-    private DatabaseReference messagesDatabaseReference;
-
     private ActivityMainBinding binding;
-    private List<Plant> plantList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
-
-        FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
-        firebaseDatabase.setPersistenceEnabled(true);
-        messagesDatabaseReference = firebaseDatabase.getReference().child("plants");
-
-        attachValueEventListener();
 
         ButterKnife.bind(this);
 
@@ -72,7 +56,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
     @Override
     protected void onPause() {
         super.onPause();
-        presenter.detachDatabaseReadListener(valueEventListener);
+        presenter.onPause();
     }
 
     @Override
@@ -102,36 +86,5 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
     public void navigateToPlantDetailsActivity(@NonNull Intent intent) {
         startActivity(intent);
     }
-
-    @Override
-    public void detachValueEventListener() {
-        messagesDatabaseReference.removeEventListener(valueEventListener);
-        valueEventListener = null;
-    }
     // endregion
-
-    // TODO: Look at this!!! https://www.learnhowtoprogram.com/android/gestures-animations-flexible-uis/using-the-camera-and-saving-images-to-firebase
-    // TODO: Move this to a presenter?????
-    private void attachValueEventListener() {
-        if (valueEventListener == null) {
-            messagesDatabaseReference.addValueEventListener(new ValueEventListener() {
-                @Override
-                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                    plantList.clear();
-
-                    for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                        Plant plant = snapshot.getValue(Plant.class);
-                        plantList.add(plant);
-                    }
-
-                    presenter.setPlantList(plantList);
-                }
-
-                @Override
-                public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                }
-            });
-        }
-    }
 }

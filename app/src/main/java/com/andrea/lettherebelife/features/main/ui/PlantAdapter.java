@@ -70,13 +70,16 @@ public class PlantAdapter extends RecyclerView.Adapter<PlantAdapter.PlantViewHol
 
             String photoUrl = plantList.get(listItem).getPhotoUrl();
             if (photoUrl != null) {
+                if (photoUrl.isEmpty()) {
+                    displayImage("", plantImageView);
+                    return;
+                }
+
                 if (!photoUrl.contains("http")) {
                     plantImageView.setImageBitmap(decodeImageFromFirebaseBase64(photoUrl));
                 } else {
                     displayPlantImage(photoUrl, plantImageView);
                 }
-            } else {
-                displayImage("", plantImageView);
             }
         }
 

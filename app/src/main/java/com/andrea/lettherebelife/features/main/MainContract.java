@@ -14,7 +14,5 @@ public interface MainContract {
         void navigateToNewPlantActivity(@NonNull Intent intent);
 
         void navigateToPlantDetailsActivity(@NonNull Intent intent);
-
-        void detachValueEventListener();
     }
 }
