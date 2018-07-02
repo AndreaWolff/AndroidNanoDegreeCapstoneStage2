@@ -10,6 +10,7 @@ import com.andrea.lettherebelife.dagger.component.DaggerPlantInfoComponent;
 import com.andrea.lettherebelife.databinding.ActivityPlantInfoBinding;
 
 import static com.andrea.lettherebelife.application.PlantApplication.getDagger;
+import static com.andrea.lettherebelife.features.common.ActivityConstants.PLANT_NAME;
 
 public class PlantInfoActivity extends AppCompatActivity {
 
@@ -32,9 +33,9 @@ public class PlantInfoActivity extends AppCompatActivity {
 
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
-            String plantName = extras.getString("PLANT NAME");
+            String plantName = extras.getString(PLANT_NAME);
             if (plantName != null && !plantName.isEmpty()) {
-                setTitle("About " + plantName);
+                setTitle(getString(R.string.plant_details_title, plantName));
             } else {
                 setTitle(this.getString(R.string.app_name));
             }

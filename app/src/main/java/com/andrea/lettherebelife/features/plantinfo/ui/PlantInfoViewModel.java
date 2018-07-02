@@ -14,6 +14,8 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.schedulers.Schedulers;
 
+import static com.andrea.lettherebelife.features.common.ActivityConstants.PLANT_INFO;
+
 public class PlantInfoViewModel extends ViewModel {
 
     public MutableLiveData<String> plantDescription = new MutableLiveData<>();
@@ -34,7 +36,7 @@ public class PlantInfoViewModel extends ViewModel {
 
     public void setPlantInfoViewModel(@Nullable Bundle extras) {
         if (extras != null) {
-            int plantInfoId = extras.getInt("PLANT INFO");
+            int plantInfoId = extras.getInt(PLANT_INFO);
             if (plantInfoId > 0) {
                 this.plantInfoId = plantInfoId;
             }

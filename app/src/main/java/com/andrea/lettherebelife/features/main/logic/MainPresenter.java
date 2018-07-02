@@ -19,6 +19,8 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import static com.andrea.lettherebelife.features.common.ActivityConstants.PLANT;
+
 public class MainPresenter {
 
     private final Context context;
@@ -66,7 +68,7 @@ public class MainPresenter {
 
     public void onPlantListItemSelected(@NonNull Plant plant) {
         Intent intent = new Intent(context, PlantDetailsActivity.class);
-        intent.putExtra("PLANT", plant);
+        intent.putExtra(PLANT, plant);
 
         if (view != null) {
             view.navigateToPlantDetailsActivity(intent);

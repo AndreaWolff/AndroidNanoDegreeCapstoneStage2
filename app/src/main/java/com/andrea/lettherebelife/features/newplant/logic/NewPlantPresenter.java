@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
+import com.andrea.lettherebelife.R;
 import com.andrea.lettherebelife.features.common.domain.Plant;
 import com.andrea.lettherebelife.features.newplant.NewPlantContract;
 
@@ -43,7 +44,7 @@ public class NewPlantPresenter {
 
     private void init() {
         if (view != null) {
-            view.setScreenTitle("Create a New Plant");
+            view.setScreenTitle(context.getString(R.string.new_plant_title));
         }
     }
 

@@ -24,28 +24,14 @@ public class Plant implements Parcelable {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public String getSeedDate() {
         return seedDate;
     }
 
-    public void setSeedDate(String seedDate) {
-        this.seedDate = seedDate;
-    }
-
     public String getDescription() { return description; }
-
-    public void setDescription(String description) { this.description = description; }
 
     public String getPhotoUrl() {
         return photoUrl;
-    }
-
-    public void setPhotoUrl(String photoUrl) {
-        this.photoUrl = photoUrl;
     }
 
     protected Plant(Parcel in) {

@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
+import com.andrea.lettherebelife.R;
 import com.andrea.lettherebelife.data.PlantDao;
 import com.andrea.lettherebelife.features.common.domain.Plant;
 import com.andrea.lettherebelife.features.common.domain.PlantInfo;
@@ -20,6 +21,9 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.schedulers.Schedulers;
 
+import static com.andrea.lettherebelife.features.common.ActivityConstants.PLANT;
+import static com.andrea.lettherebelife.features.common.ActivityConstants.PLANT_INFO;
+import static com.andrea.lettherebelife.features.common.ActivityConstants.PLANT_NAME;
 import static com.andrea.lettherebelife.util.DecodeImageFromFirebase.decodeImageFromFirebaseBase64;
 
 public class PlantDetailsPresenter {
@@ -48,7 +52,7 @@ public class PlantDetailsPresenter {
             return;
         }
 
-        plant = extras.getParcelable("PLANT");
+        plant = extras.getParcelable(PLANT);
 
         init();
     }
@@ -73,8 +77,8 @@ public class PlantDetailsPresenter {
     public void showPlantInfo() {
         if (view != null) {
             Intent intent = new Intent(context, PlantInfoActivity.class);
-            intent.putExtra("PLANT NAME", plantInfo.getName());
-            intent.putExtra("PLANT INFO", plantInfo.getId());
+            intent.putExtra(PLANT_NAME, plantInfo.getName());
+            intent.putExtra(PLANT_INFO, plantInfo.getId());
             view.navigateToPlantInfo(intent);
         }
     }
@@ -86,7 +90,7 @@ public class PlantDetailsPresenter {
 
                 if (view != null) {
                     view.hideProgressBar();
-                    view.showMenu(true, "About " + plantInfo.getName());
+                    view.showMenu(true, context.getString(R.string.plant_details_title, plantInfo.getName()));
                 }
                 return;
             }
@@ -132,7 +136,7 @@ public class PlantDetailsPresenter {
     public void onShareSelected() {
         if (plant != null) {
             if (view != null) {
-                view.sharePlantDetails("text/plain", "Plant Name: " + plant.getName() + "\nSeed Date: " + plant.getSeedDate() + "\nDescription: " + plant.getDescription());
+                view.sharePlantDetails("text/plain", context.getString(R.string.share_plant_details, plant.getName(), plant.getSeedDate(), plant.getDescription()));
             }
         }
     }

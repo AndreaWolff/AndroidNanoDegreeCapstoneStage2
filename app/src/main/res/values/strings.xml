@@ -1,6 +1,11 @@
 <resources>
     <string name="app_name">Let There Be Life</string>
 
+    <string name="new_plant_title">Create a New Plant</string>
+
+    <string name="plant_details_title">About %1$s</string>
+    <string name="share_plant_details">Plant Name: %1$s\nSeed Date: %2$s\nDescription: %3$s</string>
+
     <string name="plant_image_content_description">Plant Image</string>
 
     <string name="description">Description:</string>

@@ -5,6 +5,8 @@ import android.support.annotation.NonNull;
 import com.andrea.lettherebelife.features.common.domain.PlantInfo;
 import com.google.gson.annotations.SerializedName;
 
+import static com.andrea.lettherebelife.features.common.ActivityConstants.NOT_AVAILABLE;
+
 public class PlantInfoDto {
 
     @SerializedName("id") private Integer id;
@@ -21,14 +23,14 @@ public class PlantInfoDto {
     @NonNull
     PlantInfo toPlantInfo() {
         return new PlantInfo(id,
-                name != null ? name : "N/A",
-                description != null ? description : "N/A",
-                optimalSun != null ? optimalSun : "N/A",
-                plantingConsiderations != null ? plantingConsiderations : "N/A",
-                growingFromSeed != null ? growingFromSeed : "N/A",
-                otherCare != null ? otherCare : "N/A",
-                diseases != null ? diseases : "N/A",
-                harvesting != null ? harvesting : "N/A",
-                storageUse != null ? storageUse : "N/A");
+                name != null ? name : NOT_AVAILABLE,
+                description != null ? description : NOT_AVAILABLE,
+                optimalSun != null ? optimalSun : NOT_AVAILABLE,
+                plantingConsiderations != null ? plantingConsiderations : NOT_AVAILABLE,
+                growingFromSeed != null ? growingFromSeed : NOT_AVAILABLE,
+                otherCare != null ? otherCare : NOT_AVAILABLE,
+                diseases != null ? diseases : NOT_AVAILABLE,
+                harvesting != null ? harvesting : NOT_AVAILABLE,
+                storageUse != null ? storageUse : NOT_AVAILABLE);
     }
 }

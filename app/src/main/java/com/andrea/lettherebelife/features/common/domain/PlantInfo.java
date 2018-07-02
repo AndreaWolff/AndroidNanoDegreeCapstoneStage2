@@ -4,7 +4,9 @@ import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
 import android.support.annotation.NonNull;
 
-@Entity(tableName = "plant_info")
+import static com.andrea.lettherebelife.features.common.ActivityConstants.TABLE_NAME;
+
+@Entity(tableName = TABLE_NAME)
 public class PlantInfo {
 
     @PrimaryKey()
