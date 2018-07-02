@@ -4,6 +4,8 @@
     package="com.andrea.lettherebelife"
     >
 
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+
     <application
         android:name=".application.PlantApplication"
         android:allowBackup="true"
@@ -58,6 +60,18 @@
         </activity>
 
         <service android:name=".jobintentservice.PlantJobIntentService"/>
+
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="com.mydomain.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true"
+            >
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_path"
+                />
+        </provider>
     </application>
 
 </manifest>

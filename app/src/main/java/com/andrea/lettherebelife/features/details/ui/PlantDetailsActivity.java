@@ -23,6 +23,7 @@ import javax.inject.Inject;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
+import static android.content.Intent.FLAG_ACTIVITY_NEW_DOCUMENT;
 import static android.view.View.GONE;
 import static android.view.View.VISIBLE;
 import static android.widget.ImageView.ScaleType.CENTER_CROP;
@@ -149,7 +150,7 @@ public class PlantDetailsActivity extends AppCompatActivity implements PlantDeta
                 .setType(type)
                 .setText(plantDetails)
                 .getIntent()
-                .addFlags(Intent.FLAG_ACTIVITY_NEW_DOCUMENT);
+                .addFlags(FLAG_ACTIVITY_NEW_DOCUMENT);
         startActivity(shareIntent);
     }
 
