@@ -20,4 +20,6 @@ public class BaseFragment extends Fragment {
     protected void finishActivity() {
         getActivity().finish();
     }
+
+    protected void invalidateMenuOptions() { getActivity().invalidateOptionsMenu(); }
 }

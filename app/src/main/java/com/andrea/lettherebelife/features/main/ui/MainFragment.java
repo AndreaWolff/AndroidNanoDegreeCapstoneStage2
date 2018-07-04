@@ -32,10 +32,6 @@ public class MainFragment extends BaseFragment implements MainContract.View, Pla
 
     private FragmentMainBinding binding;
 
-    public MainFragment() {
-        // Required empty public constructor
-    }
-
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_main, container, false);

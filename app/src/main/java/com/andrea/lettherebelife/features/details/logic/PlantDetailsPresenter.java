@@ -48,7 +48,7 @@ public class PlantDetailsPresenter {
 
         if (extras == null) {
             assert this.view != null;
-            view.finishActivity();
+            view.finishCurrentActivity();
             return;
         }
 

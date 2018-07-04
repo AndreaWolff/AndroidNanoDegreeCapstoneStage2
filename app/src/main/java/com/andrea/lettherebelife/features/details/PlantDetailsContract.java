@@ -26,7 +26,7 @@ public interface PlantDetailsContract {
 
         void sharePlantDetails(@NonNull String type, @NonNull String plantDetails);
 
-        void finishActivity();
+        void finishCurrentActivity();
 
     }
 }
