@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.andrea.lettherebelife"
-    >
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.andrea.lettherebelife">
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
@@ -12,13 +10,11 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
-        android:supportsRtl="true"
-        >
+        android:supportsRtl="true">
         <activity
             android:name=".features.main.ui.MainActivity"
             android:launchMode="singleTop"
-            android:theme="@style/AppTheme"
-            >
+            android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
@@ -29,49 +25,42 @@
             android:name=".features.details.ui.PlantDetailsActivity"
             android:launchMode="singleTop"
             android:parentActivityName=".features.main.ui.MainActivity"
-            android:theme="@style/NoToolbarTheme"
-            >
+            android:theme="@style/NoToolbarTheme">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".features.main.ui.MainActivity"
-                />
+                android:value=".features.main.ui.MainActivity"/>
         </activity>
         <activity
             android:name=".features.newplant.ui.NewPlantActivity"
             android:launchMode="singleTop"
             android:parentActivityName=".features.main.ui.MainActivity"
-            android:theme="@style/NoToolbarTheme"
-            >
+            android:theme="@style/NoToolbarTheme">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".features.main.ui.MainActivity"
-                />
+                android:value=".features.main.ui.MainActivity"/>
         </activity>
         <activity
             android:name=".features.plantinfo.ui.PlantInfoActivity"
             android:launchMode="singleTop"
             android:parentActivityName=".features.details.ui.PlantDetailsActivity"
-            android:theme="@style/AppTheme"
-            >
+            android:theme="@style/AppTheme">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".features.details.ui.PlantDetailsActivity"
-                />
+                android:value=".features.details.ui.PlantDetailsActivity"/>
         </activity>
 
         <service android:name=".jobintentservice.PlantJobIntentService"/>
 
-        <provider
-            android:name="android.support.v4.content.FileProvider"
-            android:authorities="com.mydomain.fileprovider"
-            android:exported="false"
-            android:grantUriPermissions="true"
-            >
+        <receiver android:name=".widget.PlantWidget">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+
             <meta-data
-                android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/file_path"
+                android:name="android.appwidget.provider"
+                android:resource="@xml/plant_widget_info"
                 />
-        </provider>
+        </receiver>
     </application>
 
 </manifest>

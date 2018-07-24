@@ -13,6 +13,9 @@ public class ActivityConstants {
     public static final String PLANT_NAME = "PLANT NAME";
     public static final String PLANT_INFO = "PLANT INFO";
 
+    public static final String WIDGET = "WIDGET";
+    public static final String SHARED_PREFERENCES = "SHARED_PREFERENCES";
+
     public static final String NOT_AVAILABLE = "N/A";
 
     public static final String API_KEY = BuildConfig.API_KEY;
