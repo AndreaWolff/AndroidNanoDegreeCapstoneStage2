@@ -4,6 +4,7 @@
     <!-- New Plant Activity/Fragment -->
     <string name="new_plant_title">Create a New Plant</string>
     <string name="plant_name">Plant Name:</string>
+    <string name="new_plant_instructions">Please fill out to create your new plant.</string>
 
     <!-- Plant List -->
     <string name="no_plants">Currently there are no plants to display.</string>

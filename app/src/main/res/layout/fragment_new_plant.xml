@@ -35,7 +35,7 @@
                         android:id="@+id/new_plant_photo"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:contentDescription="Plant photo"
+                        android:contentDescription="@string/plant_image_content_description"
                         android:scaleType="centerCrop"
                         app:layout_collapseMode="parallax"
                         />
@@ -79,7 +79,7 @@
                     android:layout_marginEnd="@dimen/padding_standard"
                     android:layout_marginStart="@dimen/padding_standard"
                     android:layout_marginTop="@dimen/padding_standard"
-                    android:text="Please fill out to create your new plant."
+                    android:text="@string/new_plant_instructions"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="@+id/new_plant_constraintLayout"/>
@@ -167,7 +167,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/padding_standard"
-            android:tint="#FFFFFFFF"
+            android:tint="@color/white"
             android:translationZ="@dimen/padding_standard_half_minus_2"
             app:layout_anchor="@id/new_plant_app_bar"
             app:layout_anchorGravity="bottom|end"

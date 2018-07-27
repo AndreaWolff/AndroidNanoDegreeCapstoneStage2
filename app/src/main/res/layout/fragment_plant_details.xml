@@ -90,7 +90,8 @@
                         android:text="@string/seed_date"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="@+id/plant_details_constraintLayout"/>
+                        app:layout_constraintTop_toTopOf="@+id/plant_details_constraintLayout"
+                        />
 
                     <TextView
                         android:id="@+id/plant_details_seed_date_textView"
@@ -99,10 +100,11 @@
                         android:layout_marginEnd="@dimen/padding_standard"
                         android:layout_marginStart="@dimen/padding_standard"
                         android:layout_marginTop="@dimen/padding_standard_half"
-                        android:text="Plant start date"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/plant_details_seed_date_label"/>
+                        app:layout_constraintTop_toBottomOf="@+id/plant_details_seed_date_label"
+                        tools:text="Plant start date"
+                        />
 
                     <TextView
                         android:id="@+id/plant_details_description_label"
@@ -114,7 +116,8 @@
                         android:text="@string/description"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/plant_details_seed_date_textView"/>
+                        app:layout_constraintTop_toBottomOf="@+id/plant_details_seed_date_textView"
+                        />
 
                     <TextView
                         android:id="@+id/plant_details_description_textView"
@@ -124,10 +127,11 @@
                         android:layout_marginEnd="@dimen/padding_standard"
                         android:layout_marginStart="@dimen/padding_standard"
                         android:layout_marginTop="@dimen/padding_standard_half"
-                        tools:text="Plant description here."
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/plant_details_description_label"/>
+                        app:layout_constraintTop_toBottomOf="@+id/plant_details_description_label"
+                        tools:text="Plant description here."
+                        />
 
                 </android.support.constraint.ConstraintLayout>
 
