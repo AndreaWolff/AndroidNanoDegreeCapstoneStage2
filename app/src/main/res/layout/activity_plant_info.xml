@@ -28,15 +28,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:clipToPadding="false"
-                android:padding="8dp"
+                android:padding="@dimen/padding_standard_half"
                 >
 
                 <TextView
                     android:id="@+id/description_label"
-                    android:layout_width="0dp"
+                    android:layout_width="@dimen/match_constraint"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginStart="@dimen/padding_standard_half"
+                    android:layout_marginTop="@dimen/padding_standard_half"
                     android:text="@string/description"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
@@ -44,9 +44,9 @@
 
                 <TextView
                     android:id="@+id/description_textview"
-                    android:layout_width="0dp"
+                    android:layout_width="@dimen/match_constraint"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="8dp"
+                    android:layout_marginEnd="@dimen/padding_standard_half"
                     android:text="@{viewModel.plantDescription}"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="@+id/optimalSun_textview"
@@ -56,10 +56,10 @@
 
                 <TextView
                     android:id="@+id/optimalSun_label"
-                    android:layout_width="0dp"
+                    android:layout_width="@dimen/match_constraint"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginStart="@dimen/padding_standard_half"
+                    android:layout_marginTop="@dimen/padding_standard_half"
                     android:text="@string/optimal_sun"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/description_textview"
@@ -67,10 +67,10 @@
 
                 <TextView
                     android:id="@+id/optimalSun_textview"
-                    android:layout_width="0dp"
+                    android:layout_width="@dimen/match_constraint"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="8dp"
-                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="@dimen/padding_standard_half"
+                    android:layout_marginStart="@dimen/padding_standard_half"
                     android:text="@{viewModel.plantOptimalSun}"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/optimalSun_label"
@@ -80,10 +80,10 @@
 
                 <TextView
                     android:id="@+id/otherCare_label"
-                    android:layout_width="0dp"
+                    android:layout_width="@dimen/match_constraint"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginStart="@dimen/padding_standard_half"
+                    android:layout_marginTop="@dimen/padding_standard_half"
                     android:text="@string/other_care"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/optimalSun_textview"
@@ -91,9 +91,9 @@
 
                 <TextView
                     android:id="@+id/otherCare_textview"
-                    android:layout_width="0dp"
+                    android:layout_width="@dimen/match_constraint"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="8dp"
+                    android:layout_marginEnd="@dimen/padding_standard_half"
                     android:text="@{viewModel.plantOtherCare}"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="@+id/optimalSun_textview"
@@ -103,10 +103,10 @@
 
                 <TextView
                     android:id="@+id/diseases_label"
-                    android:layout_width="0dp"
+                    android:layout_width="@dimen/match_constraint"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginStart="@dimen/padding_standard_half"
+                    android:layout_marginTop="@dimen/padding_standard_half"
                     android:text="@string/diseases"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/otherCare_textview"
@@ -114,9 +114,9 @@
 
                 <TextView
                     android:id="@+id/diseases_textview"
-                    android:layout_width="0dp"
+                    android:layout_width="@dimen/match_constraint"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="8dp"
+                    android:layout_marginEnd="@dimen/padding_standard_half"
                     android:text="@{viewModel.plantDiseases}"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="@+id/otherCare_textview"
@@ -126,10 +126,10 @@
 
                 <TextView
                     android:id="@+id/harvesting_label"
-                    android:layout_width="0dp"
+                    android:layout_width="@dimen/match_constraint"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginStart="@dimen/padding_standard_half"
+                    android:layout_marginTop="@dimen/padding_standard_half"
                     android:text="@string/harvesting"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/diseases_textview"
@@ -137,9 +137,9 @@
 
                 <TextView
                     android:id="@+id/harvesting_textview"
-                    android:layout_width="0dp"
+                    android:layout_width="@dimen/match_constraint"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="8dp"
+                    android:layout_marginEnd="@dimen/padding_standard_half"
                     android:text="@{viewModel.plantHarvesting}"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="@+id/diseases_textview"
@@ -149,10 +149,10 @@
 
                 <TextView
                     android:id="@+id/storageUse_label"
-                    android:layout_width="0dp"
+                    android:layout_width="@dimen/match_constraint"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginStart="@dimen/padding_standard_half"
+                    android:layout_marginTop="@dimen/padding_standard_half"
                     android:text="@string/storage_use"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/harvesting_textview"
@@ -160,9 +160,9 @@
 
                 <TextView
                     android:id="@+id/storageUse_textview"
-                    android:layout_width="0dp"
+                    android:layout_width="@dimen/match_constraint"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="8dp"
+                    android:layout_marginEnd="@dimen/padding_standard_half"
                     android:text="@{viewModel.plantStorageUse}"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="@+id/harvesting_textview"
@@ -172,10 +172,10 @@
 
                 <TextView
                     android:id="@+id/growingFromSeed_label"
-                    android:layout_width="0dp"
+                    android:layout_width="@dimen/match_constraint"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginStart="@dimen/padding_standard_half"
+                    android:layout_marginTop="@dimen/padding_standard_half"
                     android:text="@string/from_seed"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/storageUse_textview"
@@ -183,9 +183,9 @@
 
                 <TextView
                     android:id="@+id/growingFromSeed_textview"
-                    android:layout_width="0dp"
+                    android:layout_width="@dimen/match_constraint"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="8dp"
+                    android:layout_marginEnd="@dimen/padding_standard_half"
                     android:text="@{viewModel.plantGrowingFromSeed}"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="@+id/storageUse_textview"
@@ -195,10 +195,10 @@
 
                 <TextView
                     android:id="@+id/plantingConsiderations_label"
-                    android:layout_width="0dp"
+                    android:layout_width="@dimen/match_constraint"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginStart="@dimen/padding_standard_half"
+                    android:layout_marginTop="@dimen/padding_standard_half"
                     android:text="@string/consider"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/growingFromSeed_textview"
@@ -206,9 +206,9 @@
 
                 <TextView
                     android:id="@+id/plantingConsiderations_textview"
-                    android:layout_width="0dp"
+                    android:layout_width="@dimen/match_constraint"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="8dp"
+                    android:layout_marginEnd="@dimen/padding_standard_half"
                     android:text="@{viewModel.plantConsiderations}"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="@+id/growingFromSeed_textview"

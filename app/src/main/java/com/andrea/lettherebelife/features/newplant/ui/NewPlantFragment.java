@@ -186,5 +186,35 @@ public class NewPlantFragment extends BaseFragment implements NewPlantContract.V
     public void renderPlantImage(@NonNull Bitmap imageBitmap) {
         binding.newPlantPhoto.setImageBitmap(imageBitmap);
     }
+
+    @Override
+    public void showPlantNameErrorMessage(@NonNull String plantNameErrorMessage) {
+        binding.newPlantNameTextInputLayout.setError(plantNameErrorMessage);
+    }
+
+    @Override
+    public void showSeedDateErrorMessage(@NonNull String seedDateErrorMessage) {
+        binding.newPlantSeedDateTextInputLayout.setError(seedDateErrorMessage);
+    }
+
+    @Override
+    public void showDescriptionErrorMessage(@NonNull String descriptionErrorMessage) {
+        binding.newPlantDescriptionTextInputLayout.setError(descriptionErrorMessage);
+    }
+
+    @Override
+    public void hidePlantNameErrorMessage() {
+        binding.newPlantNameTextInputLayout.setErrorEnabled(false);
+    }
+
+    @Override
+    public void hideSeedDateErrorMessage() {
+        binding.newPlantSeedDateTextInputLayout.setErrorEnabled(false);
+    }
+
+    @Override
+    public void hideDescriptionErrorMessage() {
+        binding.newPlantDescriptionTextInputLayout.setErrorEnabled(false);
+    }
     // endregion
 }

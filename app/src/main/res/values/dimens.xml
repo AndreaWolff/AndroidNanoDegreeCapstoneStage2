@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="match_constraint">0dp</dimen>
+    <dimen name="padding_standard_quarter_half">2dp</dimen>
+    <dimen name="padding_standard_quarter">4dp</dimen>
+    <dimen name="padding_standard_half_minus_2">6dp</dimen>
+    <dimen name="padding_standard_half">8dp</dimen>
+    <dimen name="padding_standard">16dp</dimen>
+    <dimen name="padding_standard_x1.5">24dp</dimen>
+    <dimen name="padding_standard_double">32dp</dimen>
+
+    <!-- Photo Images -->
+    <dimen name="app_bar_height">300dp</dimen>
+    <dimen name="plant_image">100dp</dimen>
+
+    <!-- Widget -->
+    <dimen name="widget_margin">8dp</dimen>
+
+</resources>

@@ -3,6 +3,7 @@
 
     <!-- New Plant Activity/Fragment -->
     <string name="new_plant_title">Create a New Plant</string>
+    <string name="plant_name">Plant Name:</string>
 
     <!-- Plant List -->
     <string name="no_plants">Currently there are no plants to display.</string>
@@ -13,7 +14,7 @@
 
     <!-- Plant Details/Information -->
     <string name="description">Description:</string>
-    <string name="seed_date">Start Date:</string>
+    <string name="seed_date">Seed Date:</string>
     <string name="optimal_sun">Optimal Sun:</string>
     <string name="other_care">Other Care:</string>
     <string name="diseases">Diseases:</string>
@@ -29,5 +30,6 @@
     <string name="error_message">There has been an issue with your request, please try again later.</string>
     <string name="unable_to_load_content">Unable to load content, please try again.</string>
     <string name="widget_error_message">Sorry, no plants have been loaded.</string>
+    <string name="min_characters_required">Minimum of 3 characters required</string>
 
 </resources>

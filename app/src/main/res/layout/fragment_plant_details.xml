@@ -20,8 +20,8 @@
             <android.support.design.widget.AppBarLayout
                 android:id="@+id/plant_details_app_bar"
                 android:layout_width="match_parent"
-                android:layout_height="300dp"
-                android:elevation="4dp"
+                android:layout_height="@dimen/app_bar_height"
+                android:elevation="@dimen/padding_standard_quarter"
                 android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
                 >
 
@@ -30,7 +30,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     app:contentScrim="@color/colorPrimary"
-                    app:expandedTitleMarginStart="16dp"
+                    app:expandedTitleMarginStart="@dimen/padding_standard"
                     app:layout_scrollFlags="scroll|exitUntilCollapsed|snap"
                     >
 
@@ -82,11 +82,11 @@
 
                     <TextView
                         android:id="@+id/plant_details_seed_date_label"
-                        android:layout_width="0dp"
+                        android:layout_width="@dimen/match_constraint"
                         android:layout_height="wrap_content"
-                        android:layout_marginEnd="16dp"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="@dimen/padding_standard"
+                        android:layout_marginStart="@dimen/padding_standard"
+                        android:layout_marginTop="@dimen/padding_standard"
                         android:text="@string/seed_date"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
@@ -94,11 +94,11 @@
 
                     <TextView
                         android:id="@+id/plant_details_seed_date_textView"
-                        android:layout_width="0dp"
+                        android:layout_width="@dimen/match_constraint"
                         android:layout_height="wrap_content"
-                        android:layout_marginEnd="16dp"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="@dimen/padding_standard"
+                        android:layout_marginStart="@dimen/padding_standard"
+                        android:layout_marginTop="@dimen/padding_standard_half"
                         android:text="Plant start date"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
@@ -106,11 +106,11 @@
 
                     <TextView
                         android:id="@+id/plant_details_description_label"
-                        android:layout_width="0dp"
+                        android:layout_width="@dimen/match_constraint"
                         android:layout_height="wrap_content"
-                        android:layout_marginEnd="16dp"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="@dimen/padding_standard"
+                        android:layout_marginStart="@dimen/padding_standard"
+                        android:layout_marginTop="@dimen/padding_standard_half"
                         android:text="@string/description"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
@@ -118,12 +118,12 @@
 
                     <TextView
                         android:id="@+id/plant_details_description_textView"
-                        android:layout_width="0dp"
+                        android:layout_width="@dimen/match_constraint"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="16dp"
-                        android:layout_marginEnd="16dp"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="@dimen/padding_standard"
+                        android:layout_marginEnd="@dimen/padding_standard"
+                        android:layout_marginStart="@dimen/padding_standard"
+                        android:layout_marginTop="@dimen/padding_standard_half"
                         tools:text="Plant description here."
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
@@ -137,8 +137,8 @@
                 android:id="@+id/share_fab"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="16dp"
-                android:translationZ="6dp"
+                android:layout_margin="@dimen/padding_standard"
+                android:translationZ="@dimen/padding_standard_half_minus_2"
                 app:layout_anchor="@id/plant_details_app_bar"
                 app:layout_anchorGravity="bottom|end"
                 app:srcCompat="@drawable/icon_share"

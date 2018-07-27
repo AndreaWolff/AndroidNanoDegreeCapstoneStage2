@@ -17,5 +17,17 @@ public interface NewPlantContract {
         void navigateToAddImage(@NonNull Intent intent, int image_id);
 
         void renderPlantImage(@NonNull Bitmap imageBitmap);
+
+        void showPlantNameErrorMessage(@NonNull String plantNameErrorMessage);
+
+        void showSeedDateErrorMessage(@NonNull String seedDateErrorMessage);
+
+        void showDescriptionErrorMessage(@NonNull String descriptionErrorMessage);
+
+        void hidePlantNameErrorMessage();
+
+        void hideSeedDateErrorMessage();
+
+        void hideDescriptionErrorMessage();
     }
 }

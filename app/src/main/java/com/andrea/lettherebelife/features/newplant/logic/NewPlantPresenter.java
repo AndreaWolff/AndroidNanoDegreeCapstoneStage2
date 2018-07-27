@@ -97,12 +97,18 @@ public class NewPlantPresenter {
         }
     }
 
-    // TODO: check to see if char sequences are over so many characters and then do an error if not
     public void onPlantNameTextChanged(@NonNull CharSequence plantName) {
         isValidPlantName = checkInput(plantName);
 
         if (isValidPlantName) {
             this.plantName = plantName;
+            if (view != null) {
+                view.hidePlantNameErrorMessage();
+            }
+        } else {
+            if (view != null) {
+                view.showPlantNameErrorMessage(context.getString(R.string.min_characters_required));
+            }
         }
 
         validateForm();
@@ -113,6 +119,13 @@ public class NewPlantPresenter {
 
         if (isValidPlantSeedDate) {
             this.plantSeedDate = plantSeedDate;
+            if (view != null) {
+                view.hideSeedDateErrorMessage();
+            }
+        } else {
+            if (view != null) {
+                view.showSeedDateErrorMessage(context.getString(R.string.min_characters_required));
+            }
         }
 
         validateForm();
@@ -123,6 +136,13 @@ public class NewPlantPresenter {
 
         if (isValidPlantDescription) {
             this.plantDescription = plantDescription;
+            if (view != null) {
+                view.hideDescriptionErrorMessage();
+            }
+        } else {
+            if (view != null) {
+                view.showDescriptionErrorMessage(context.getString(R.string.min_characters_required));
+            }
         }
 
         validateForm();
@@ -142,7 +162,7 @@ public class NewPlantPresenter {
     }
 
     private boolean checkInput(@NonNull CharSequence charSequence) {
-        return charSequence.toString().trim().length() > 0;
+        return charSequence.toString().length() >= 3;
     }
 
     public void disconnectView() {

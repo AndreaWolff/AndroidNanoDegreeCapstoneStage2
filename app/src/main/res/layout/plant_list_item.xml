@@ -9,20 +9,20 @@
     android:clickable="true"
     android:focusable="true"
     android:foreground="?selectableItemBackground"
-    app:cardElevation="4dp"
+    app:cardElevation="@dimen/padding_standard_quarter"
     app:cardUseCompatPadding="true"
     >
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp"
+        android:layout_margin="@dimen/padding_standard_quarter"
         >
 
         <ImageView
             android:id="@+id/plant_image"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="@dimen/plant_image"
+            android:layout_height="@dimen/plant_image"
             android:background="@drawable/image_border"
             android:contentDescription="@string/plant_image_content_description"
             android:scaleType="centerCrop"
@@ -30,12 +30,12 @@
 
         <TextView
             android:id="@+id/plant_name"
-            android:layout_width="0dp"
+            android:layout_width="@dimen/match_constraint"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginBottom="@dimen/padding_standard_quarter"
+            android:layout_marginEnd="@dimen/padding_standard"
+            android:layout_marginStart="@dimen/padding_standard"
+            android:layout_marginTop="@dimen/padding_standard_half"
             android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/plant_seed_date"
@@ -48,11 +48,11 @@
 
         <TextView
             android:id="@+id/plant_seed_date"
-            android:layout_width="0dp"
+            android:layout_width="@dimen/match_constraint"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="24dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginStart="16dp"
+            android:layout_marginBottom="@dimen/padding_standard_x1.5"
+            android:layout_marginEnd="@dimen/padding_standard"
+            android:layout_marginStart="@dimen/padding_standard"
             app:layout_constraintBottom_toBottomOf="@+id/plant_image"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
