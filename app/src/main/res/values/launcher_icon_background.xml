@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Launcher icon taken from https://findicons.com/icon/225122/icontexto_green_01# -->
+    <color name="ic_launcher_background">#FFFFFF</color>
+</resources>
