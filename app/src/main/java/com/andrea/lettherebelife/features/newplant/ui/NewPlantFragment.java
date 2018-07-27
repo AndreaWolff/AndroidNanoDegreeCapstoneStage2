@@ -78,6 +78,12 @@ public class NewPlantFragment extends BaseFragment implements NewPlantContract.V
     }
 
     @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        presenter.onSavedInstanceState(outState);
+    }
+
+    @Override
     public void onDestroy() {
         super.onDestroy();
         presenter.disconnectView();

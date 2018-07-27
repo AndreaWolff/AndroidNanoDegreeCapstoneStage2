@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v4.app.JobIntentService;
-import android.widget.Toast;
+import android.util.Log;
 
 import com.andrea.lettherebelife.application.PlantApplication;
 import com.andrea.lettherebelife.data.AppExecutor;
@@ -37,6 +37,9 @@ public class PlantJobIntentService extends JobIntentService {
     }
 
     private void handleResponseError(Throwable throwable) {
-        Toast.makeText(PlantApplication.getDagger().getContext(), throwable.getMessage(), Toast.LENGTH_LONG).show();
+        // Fails silently
+        if (throwable.getMessage() != null) {
+            Log.d("TAG", throwable.getMessage());
+        }
     }
 }

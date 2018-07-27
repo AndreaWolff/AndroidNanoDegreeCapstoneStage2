@@ -8,6 +8,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ShareCompat;
 import android.support.v7.app.ActionBar;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -66,7 +67,7 @@ public class PlantDetailsFragment extends BaseFragment implements PlantDetailsCo
                 .build()
                 .inject(this);
 
-        presenter.connectView(this, getActivity().getIntent().getExtras(), savedInstanceState);
+        presenter.connectView(this, getActivity().getIntent().getExtras());
 
         binding.shareFab.setOnClickListener(v -> presenter.onShareSelected());
 
@@ -135,6 +136,18 @@ public class PlantDetailsFragment extends BaseFragment implements PlantDetailsCo
     @Override
     public void hideProgressBar() {
         binding.plantDetailsProgressBar.setVisibility(GONE);
+    }
+
+    @Override
+    public void showErrorDialog(@NonNull String errorTitle, @NonNull String errorMessage) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(getContext())
+                .setTitle(errorTitle)
+                .setMessage(errorMessage)
+                .setPositiveButton(android.R.string.ok, (dialogInterface, i) -> {
+                    // do nothing
+                });
+        builder.create();
+        builder.show();
     }
 
     @Override

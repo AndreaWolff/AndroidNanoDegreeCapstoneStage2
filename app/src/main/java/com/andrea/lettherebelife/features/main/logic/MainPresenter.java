@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
+import com.andrea.lettherebelife.R;
 import com.andrea.lettherebelife.features.common.domain.Plant;
 import com.andrea.lettherebelife.features.details.ui.PlantDetailsActivity;
 import com.andrea.lettherebelife.features.main.MainContract;
@@ -16,6 +17,7 @@ import com.andrea.lettherebelife.widget.PlantWidget;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.gson.Gson;
 
@@ -110,10 +112,33 @@ public class MainPresenter {
 
                 @Override
                 public void onCancelled(@NonNull DatabaseError databaseError) {
-
                 }
             });
         }
+
+        checkDatabaseConnection();
+    }
+
+    private void checkDatabaseConnection() {
+        // Issue checking for internet connection taken from https://firebase.google.com/docs/database/android/offline-capabilities#section-connection-state
+        DatabaseReference connectedRef = FirebaseDatabase.getInstance().getReference(".info/connected");
+        connectedRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                boolean connected = snapshot.getValue(Boolean.class);
+                if (!connected) {
+                    if (plantList == null || plantList.size() == 0) {
+                        if (view != null) {
+                            view.showNoPlant(context.getString(R.string.no_plants));
+                        }
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+            }
+        });
     }
 
     private void configurePlantListWidget(List<Plant> plantList) {

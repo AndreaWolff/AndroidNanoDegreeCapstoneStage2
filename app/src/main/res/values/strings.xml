@@ -4,6 +4,9 @@
     <!-- New Plant Activity/Fragment -->
     <string name="new_plant_title">Create a New Plant</string>
 
+    <!-- Plant List -->
+    <string name="no_plants">Currently there are no plants to display.</string>
+
     <!-- Plant Details Activity/Fragment -->
     <string name="plant_details_title">About %1$s</string>
     <string name="share_plant_details">Plant Name: %1$s\nSeed Date: %2$s\nDescription: %3$s</string>
@@ -20,5 +23,11 @@
     <string name="consider">Consider:</string>
 
     <string name="plant_image_content_description">Plant Image</string>
+
+    <!-- Errors -->
+    <string name="error_title">Error</string>
+    <string name="error_message">There has been an issue with your request, please try again later.</string>
+    <string name="unable_to_load_content">Unable to load content, please try again.</string>
+    <string name="widget_error_message">Sorry, no plants have been loaded.</string>
 
 </resources>

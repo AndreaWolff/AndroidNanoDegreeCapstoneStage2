@@ -11,6 +11,8 @@ public interface MainContract {
     interface View {
         void showPlantList(@NonNull List<Plant> plantList);
 
+        void showNoPlant(@NonNull String noPlant);
+
         void navigateToNewPlantActivity(@NonNull Intent intent);
 
         void navigateToPlantDetailsActivity(@NonNull Intent intent);

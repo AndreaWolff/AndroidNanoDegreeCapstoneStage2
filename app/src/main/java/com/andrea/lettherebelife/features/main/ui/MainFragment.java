@@ -23,6 +23,8 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import static android.view.View.GONE;
+import static android.view.View.VISIBLE;
 import static com.andrea.lettherebelife.application.PlantApplication.getDagger;
 
 public class MainFragment extends BaseFragment implements MainContract.View, PlantAdapter.ListItemClickListener {
@@ -76,8 +78,16 @@ public class MainFragment extends BaseFragment implements MainContract.View, Pla
     // region View methods
     @Override
     public void showPlantList(@NonNull List<Plant> plantList) {
+        binding.noPlantToDisplay.setVisibility(GONE);
+
         PlantAdapter adapter = new PlantAdapter(this, plantList);
         binding.plantRecyclerView.setAdapter(adapter);
+    }
+
+    @Override
+    public void showNoPlant(@NonNull String noPlant) {
+        binding.noPlantToDisplay.setText(noPlant);
+        binding.noPlantToDisplay.setVisibility(VISIBLE);
     }
 
     @Override

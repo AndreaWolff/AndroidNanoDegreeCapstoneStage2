@@ -4,9 +4,8 @@ import android.arch.lifecycle.MutableLiveData;
 import android.arch.lifecycle.ViewModel;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.util.Log;
-import android.widget.Toast;
 
+import com.andrea.lettherebelife.R;
 import com.andrea.lettherebelife.application.PlantApplication;
 import com.andrea.lettherebelife.features.common.domain.PlantInfo;
 
@@ -64,7 +63,6 @@ public class PlantInfoViewModel extends ViewModel {
     }
 
     private void handleErrorResponse(Throwable throwable) {
-        Log.d("TAG", throwable.getMessage());
-        Toast.makeText(PlantApplication.getDagger().getContext(), throwable.getMessage(), Toast.LENGTH_LONG).show();
+        plantDescription.setValue(PlantApplication.getDagger().getContext().getString(R.string.unable_to_load_content));
     }
 }

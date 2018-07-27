@@ -8,10 +8,11 @@ import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
 /**
- * Global executor pools for the whole application.
- * <p>
+ * Global executor pools for the whole application.<p>
  * Grouping tasks like this avoids the effects of task starvation (e.g. disk reads don't wait behind
  * webservice requests).
+ *
+ * Taken from the Udacity Firebase weekend course.
  */
 public class AppExecutor {
 

@@ -33,7 +33,7 @@ public class PlantWidget extends AppWidgetProvider {
         Intent appIntent;
 
         if (plantList == null) {
-            views.setTextViewText(R.id.plantNameTextView, "Sorry, no plants have been loaded.");
+            views.setTextViewText(R.id.plantNameTextView, context.getString(R.string.widget_error_message));
         } else {
             views.removeAllViews(R.id.widgetPlantListLinearLayout);
 

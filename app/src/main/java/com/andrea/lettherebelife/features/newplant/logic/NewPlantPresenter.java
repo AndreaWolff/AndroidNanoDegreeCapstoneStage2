@@ -15,7 +15,10 @@ import javax.inject.Inject;
 
 import static android.app.Activity.RESULT_OK;
 import static android.provider.MediaStore.ACTION_IMAGE_CAPTURE;
+import static com.andrea.lettherebelife.features.common.ActivityConstants.IMAGE_ID;
 import static com.andrea.lettherebelife.features.common.ActivityConstants.IMAGE_REQUEST_CODE;
+import static com.andrea.lettherebelife.features.common.ActivityConstants.PLANT_PHOTO;
+import static com.andrea.lettherebelife.util.DecodeImageFromFirebase.decodeImageFromFirebaseBase64;
 import static com.andrea.lettherebelife.util.EncodeImageForFirebase.encodeBitmapAndSaveToFirebase;
 
 public class NewPlantPresenter {
@@ -40,6 +43,13 @@ public class NewPlantPresenter {
         this.view = view;
 
         init();
+
+        if (savedInstanceState != null) {
+            String plant_photo = savedInstanceState.getString(PLANT_PHOTO);
+            if (plant_photo != null) {
+                displayPlantPhoto(decodeImageFromFirebaseBase64(plant_photo));
+            }
+        }
     }
 
     private void init() {
@@ -48,11 +58,14 @@ public class NewPlantPresenter {
         }
     }
 
+    public void onSavedInstanceState(Bundle outState) {
+        outState.putString(PLANT_PHOTO, photoUrl);
+    }
+
     public void onAddImageSelected() {
         if (view != null) {
             Intent intent = new Intent(ACTION_IMAGE_CAPTURE);
-            // TODO: change that to a common variable
-            view.navigateToAddImage(intent, 2);
+            view.navigateToAddImage(intent, IMAGE_ID);
         }
     }
 
@@ -69,15 +82,18 @@ public class NewPlantPresenter {
 
             if (extras != null) {
                 Bitmap imageBitmap = (Bitmap) extras.get("data");
-
-                if (imageBitmap != null) {
-                    if (view != null) {
-                        view.renderPlantImage(imageBitmap);
-                    }
-
-                    photoUrl = encodeBitmapAndSaveToFirebase(imageBitmap);
-                }
+                displayPlantPhoto(imageBitmap);
             }
+        }
+    }
+
+    private void displayPlantPhoto(Bitmap imageBitmap) {
+        if (imageBitmap != null) {
+            if (view != null) {
+                view.renderPlantImage(imageBitmap);
+            }
+
+            photoUrl = encodeBitmapAndSaveToFirebase(imageBitmap);
         }
     }
 

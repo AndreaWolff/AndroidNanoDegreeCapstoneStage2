@@ -20,6 +20,8 @@ public interface PlantDetailsContract {
 
         void hideProgressBar();
 
+        void showErrorDialog(@NonNull String errorTitle, @NonNull String errorMessage);
+
         void showMenu(boolean menuVisibility, @NonNull String menuTitle);
 
         void navigateToPlantInfo(@NonNull Intent intent);
@@ -27,6 +29,5 @@ public interface PlantDetailsContract {
         void sharePlantDetails(@NonNull String type, @NonNull String plantDetails);
 
         void finishCurrentActivity();
-
     }
 }

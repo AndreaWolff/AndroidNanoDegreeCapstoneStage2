@@ -43,7 +43,7 @@ public class PlantDetailsPresenter {
         this.plantDao = plantDao;
     }
 
-    public void connectView(@Nullable PlantDetailsContract.View view, @Nullable Bundle extras, @Nullable Bundle savedInstanceState) {
+    public void connectView(@Nullable PlantDetailsContract.View view, @Nullable Bundle extras) {
         this.view = view;
 
         if (extras == null) {
@@ -105,6 +105,13 @@ public class PlantDetailsPresenter {
     private void handleErrorResponse(Throwable throwable) {
         if (view != null) {
             view.hideProgressBar();
+
+            if (throwable.getMessage() == null) {
+                view.showErrorDialog(context.getString(R.string.error_title), context.getString(R.string.error_message));
+                return;
+            }
+
+            view.showErrorDialog(context.getString(R.string.error_title), throwable.getMessage());
         }
     }
 
