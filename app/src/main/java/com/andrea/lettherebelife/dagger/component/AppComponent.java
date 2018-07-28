@@ -20,8 +20,6 @@ public interface AppComponent {
 
     PlantInfoRepository getPlantInfoRepository();
 
-    AppDatabase appDatabase();
-
     PlantDao getPlantDao();
 
     DatabaseReference getFirebaseDatabaseReference();

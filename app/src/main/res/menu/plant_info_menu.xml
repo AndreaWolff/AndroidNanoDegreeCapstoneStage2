@@ -6,7 +6,7 @@
 
     <item
         android:id="@+id/action_plant_information"
-        android:title="About Plant"
+        android:title="@string/about_plant"
         app:showAsAction="collapseActionView"
         />
 
