@@ -2,6 +2,7 @@ package com.andrea.lettherebelife.features.main.ui;
 
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -53,7 +54,9 @@ public class MainFragment extends BaseFragment implements MainContract.View, Pla
 
         binding.newPlantFab.setOnClickListener(v -> presenter.onNewPlantSelected());
 
-        PlantJobIntentService.enqueueWork(getActivity());
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O) {
+            PlantJobIntentService.enqueueWork(getActivity());
+        }
 
         return rootView;
     }

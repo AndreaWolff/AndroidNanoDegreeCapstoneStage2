@@ -11,7 +11,7 @@
 
     <!-- Plant Details Activity/Fragment -->
     <string name="plant_details_title">About %1$s</string>
-    <string name="share_plant_details">Plant Name: %1$s\nSeed Date: %2$s\nDescription: %3$s</string>
+    <string name="share_plant_details">Let There Be Life - Plant Details:\nPlant Name: %1$s\nSeed Date: %2$s\nDescription: %3$s</string>
 
     <!-- Plant Details/Information -->
     <string name="description">Description:</string>
