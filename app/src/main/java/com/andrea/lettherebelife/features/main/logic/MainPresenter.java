@@ -131,7 +131,13 @@ public class MainPresenter {
                 if (!connected) {
                     if (plantList == null || plantList.size() == 0) {
                         if (view != null) {
-                            view.showNoPlant(context.getString(R.string.no_plants));
+                            view.showNoPlant(context.getString(R.string.no_internet_connection));
+                        }
+                    }
+                } else {
+                    if (plantList == null || plantList.size() == 0) {
+                        if (view != null) {
+                            view.showNoPlant(context.getString(R.string.no_plant));
                         }
                     }
                 }

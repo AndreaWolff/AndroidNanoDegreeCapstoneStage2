@@ -8,7 +8,8 @@
     <string name="new_plant_instructions">Please fill out to create your new plant.</string>
 
     <!-- Plant List -->
-    <string name="no_plants">Currently there are no plants to display.</string>
+    <string name="no_internet_connection">Currently unable to connect to the server. Please try again later.</string>
+    <string name="no_plant">There are no plants to display. Please create a new plant.</string>
 
     <!-- Plant Details Activity/Fragment -->
     <string name="plant_details_title">About %1$s</string>

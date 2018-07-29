@@ -54,8 +54,11 @@ public class MainFragment extends BaseFragment implements MainContract.View, Pla
 
         binding.newPlantFab.setOnClickListener(v -> presenter.onNewPlantSelected());
 
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O) {
-            PlantJobIntentService.enqueueWork(getActivity());
+
+        if (savedInstanceState == null) {
+            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O) {
+                PlantJobIntentService.enqueueWork(getActivity());
+            }
         }
 
         return rootView;
