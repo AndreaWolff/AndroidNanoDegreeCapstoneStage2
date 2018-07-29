@@ -147,4 +147,9 @@ public class PlantDetailsPresenter {
             }
         }
     }
+
+    public void disconnectView() {
+        view = null;
+        disposable.dispose();
+    }
 }

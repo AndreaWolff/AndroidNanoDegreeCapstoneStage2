@@ -125,35 +125,25 @@ public class NewPlantFragment extends BaseFragment implements NewPlantContract.V
             @Override public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                 presenter.onPlantNameTextChanged(charSequence);
             }
-            @Override public void afterTextChanged(Editable editable) {
-
-            }
+            @Override public void afterTextChanged(Editable editable) { }
         });
 
         binding.newPlantSeedDateEditText.addTextChangedListener(new TextWatcher() {
-            @Override public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-            }
+            @Override public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) { }
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                 presenter.onPlantSeedDateTextChanged(charSequence);
             }
-            @Override public void afterTextChanged(Editable editable) {
-
-            }
+            @Override public void afterTextChanged(Editable editable) { }
         });
 
         binding.newPlantDescriptionEditText.addTextChangedListener(new TextWatcher() {
-            @Override public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-            }
+            @Override public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) { }
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                 presenter.onPlantDescriptionTextChanged(charSequence);
             }
-            @Override public void afterTextChanged(Editable editable) {
-
-            }
+            @Override public void afterTextChanged(Editable editable) { }
         });
     }
 

@@ -74,6 +74,12 @@ public class PlantDetailsFragment extends BaseFragment implements PlantDetailsCo
         return rootView;
     }
 
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        presenter.disconnectView();
+    }
+
     // region Plant Information menu
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {

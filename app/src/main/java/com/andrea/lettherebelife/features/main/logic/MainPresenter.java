@@ -125,7 +125,9 @@ public class MainPresenter {
         connectedRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                @SuppressWarnings("ConstantConditions")
                 boolean connected = snapshot.getValue(Boolean.class);
+
                 if (!connected) {
                     if (plantList == null || plantList.size() == 0) {
                         if (view != null) {
