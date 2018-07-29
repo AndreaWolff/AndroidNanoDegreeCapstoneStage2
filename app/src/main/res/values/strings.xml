@@ -38,5 +38,6 @@
     <!-- Menu -->
     <string name="about_plant">About Plant</string>
     <string name="save">SAVE</string>
+    <string name="plant_list">Plant List:</string>
 
 </resources>

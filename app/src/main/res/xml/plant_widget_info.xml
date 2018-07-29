@@ -4,7 +4,7 @@
     android:initialKeyguardLayout="@layout/plant_widget"
     android:initialLayout="@layout/plant_widget"
     android:minHeight="250dp"
-    android:minWidth="180dp"
+    android:minWidth="140dp"
     android:previewImage="@mipmap/icon_launcher_foreground"
     android:resizeMode="horizontal|vertical"
     android:updatePeriodMillis="86400000"

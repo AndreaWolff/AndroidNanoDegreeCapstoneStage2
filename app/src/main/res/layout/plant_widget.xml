@@ -7,6 +7,16 @@
     android:padding="@dimen/widget_margin"
     >
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/padding_standard_quarter"
+        android:layout_marginTop="@dimen/padding_standard_quarter_half"
+        android:text="@string/plant_list"
+        android:textStyle="bold"
+        android:textColor="@color/colorPrimaryDark"
+        />
+
     <LinearLayout
         android:id="@+id/widgetPlantListLinearLayout"
         android:layout_width="wrap_content"
