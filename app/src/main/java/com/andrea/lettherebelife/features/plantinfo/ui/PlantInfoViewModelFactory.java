@@ -11,7 +11,11 @@ public class PlantInfoViewModelFactory extends ViewModelProvider.NewInstanceFact
     @NonNull
     @Override
     public <T extends ViewModel> T create(@NonNull Class<T> modelClass) {
-        //noinspection unchecked
-        return (T) new PlantInfoViewModel();
+        if (modelClass.equals(PlantInfoViewModel.class)) {
+            //noinspection unchecked
+            return (T) new PlantInfoViewModel();
+        }
+
+        throw new IllegalArgumentException("Unsupported view model type");
     }
 }

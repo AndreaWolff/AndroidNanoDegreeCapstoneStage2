@@ -59,7 +59,10 @@
                 />
         </activity>
 
-        <service android:name=".jobintentservice.PlantJobIntentService"/>
+        <service
+            android:name=".jobintentservice.PlantJobIntentService"
+            android:permission="android.permission.BIND_JOB_SERVICE"
+            />
 
         <receiver android:name=".widget.PlantWidget">
             <intent-filter>
