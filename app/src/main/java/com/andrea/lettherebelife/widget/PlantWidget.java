@@ -43,15 +43,23 @@ public class PlantWidget extends AppWidgetProvider {
                 plantView.setTextViewText(R.id.plantSeedDateTextView, plant.getSeedDate());
                 views.addView(R.id.widgetPlantListLinearLayout, plantView);
             }
+
+            // Taken from https://code.tutsplus.com/tutorials/code-a-widget-for-your-android-app-updating-your-widget--cms-30528
+            Intent intentUpdate = new Intent(context, PlantWidget.class);
+            intentUpdate.setAction(AppWidgetManager.ACTION_APPWIDGET_UPDATE);
+
+            int[] idArray = new int[]{appWidgetId};
+            intentUpdate.putExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS, idArray);
+
+            PendingIntent pendingUpdate = PendingIntent.getBroadcast(context, appWidgetId, intentUpdate, PendingIntent.FLAG_UPDATE_CURRENT);
+            views.setOnClickPendingIntent(R.id.refresh, pendingUpdate);
         }
 
         appIntent = new Intent(context, MainActivity.class);
-
         PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, appIntent, FLAG_UPDATE_CURRENT);
         views.setOnClickPendingIntent(R.id.plantNameTextView, pendingIntent);
         views.setOnClickPendingIntent(R.id.widgetPlantListLinearLayout, pendingIntent);
 
-        // Instruct the widget manager to update the widget
         appWidgetManager.updateAppWidget(appWidgetId, views);
     }
 
@@ -60,7 +68,8 @@ public class PlantWidget extends AppWidgetProvider {
         // Taken from https://stackoverflow.com/questions/5554217/google-gson-deserialize-listclass-object-generic-type
         SharedPreferences sharedPreferences;
         sharedPreferences = context.getSharedPreferences(SHARED_PREFERENCES, MODE_PRIVATE);
-        List<Plant> plantList = new Gson().fromJson(sharedPreferences.getString(WIDGET, null), new TypeToken<ArrayList<Plant>>(){}.getType());
+        List<Plant> plantList = new Gson().fromJson(sharedPreferences.getString(WIDGET, null), new TypeToken<ArrayList<Plant>>() {
+        }.getType());
 
         // There may be multiple widgets active, so update all of them
         for (int appWidgetId : appWidgetIds) {

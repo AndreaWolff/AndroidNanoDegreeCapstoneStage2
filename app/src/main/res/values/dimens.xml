@@ -6,6 +6,7 @@
     <dimen name="padding_standard_quarter">4dp</dimen>
     <dimen name="padding_standard_half_minus_2">6dp</dimen>
     <dimen name="padding_standard_half">8dp</dimen>
+    <dimen name="padding_standard_three_quarters">12dp</dimen>
     <dimen name="padding_standard">16dp</dimen>
     <dimen name="padding_standard_x1.5">24dp</dimen>
     <dimen name="padding_standard_double">32dp</dimen>

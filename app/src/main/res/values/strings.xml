@@ -27,6 +27,7 @@
     <string name="consider">Consider:</string>
 
     <string name="plant_image_content_description">Plant Image</string>
+    <string name="floating_action_button">floating action button</string>
 
     <!-- Errors -->
     <string name="error_title">Error</string>
@@ -39,5 +40,6 @@
     <string name="about_plant">About Plant</string>
     <string name="save">SAVE</string>
     <string name="plant_list">Plant List:</string>
+    <string name="refresh">Refresh</string>
 
 </resources>
